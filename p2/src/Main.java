@@ -22,7 +22,7 @@ public class Main {
     //this method fills up the inventory
     public static Inventory fillUpInventory(int amountOfItems){
         //divided by two because in the for loop we always fill the inventory with 2 items
-        //roudn to next int
+        //round to next int
         amountOfItems = Math.round(amountOfItems/ 2);
         //creating a new inventory
         Inventory inventory = new Inventory();
@@ -37,12 +37,13 @@ public class Main {
         return inventory;
     }
 
+    //with every call a random food item is created
     public static FoodItem createFoodItem(){
         Random r = new Random();
 
         //create a random name from predefined possibilities
         String[] foodNames = new String[]{"Cola", "Sprite", "Fries", "Edamame", "Sushi",
-                "SpringRolls", "Pizza", "Broccoli", "Carrots", "Tomatoes", "Coliflower"  };
+                "SpringRolls", "Pizza", "Broccoli", "Carrots", "Tomatoes", "Cauliflower"  };
         String name = foodNames[r.nextInt(foodNames.length)];
 
 
@@ -56,15 +57,15 @@ public class Main {
         Date randomDate = randomCal.getTime();
 
         //create the FoodItem with the generated values and return it
-        FoodItem foodItem = new FoodItem(name, price, randomDate);
-        return foodItem;
+        return new FoodItem(name, price, randomDate);
 
     }
 
+    //with every call a random nonfood item is created
     public static NonFoodItem createNonFoodItem(){
-        //take a random non food item
+        //take a random non-food item
         String[] nonFoodNames = new String[]{"Couch", "Door", "Car", "Lamp", "Oven",
-                "Pan", "Watterbottle", "Spoon", "Floor", "Chair", "Bed"  };
+                "Pan", "Watter bottle", "Spoon", "Floor", "Chair", "Bed"  };
         Random r = new Random();
         String name = nonFoodNames[r.nextInt(nonFoodNames.length)];
 
@@ -75,13 +76,11 @@ public class Main {
         String[] materials = new String[]{"wood", "steel", "cotton", "clay", "glass", "plastic", "paper" };
         int numberOfMaterials = r.nextInt(materials.length-1) + 1;
         String[] materialUsed = new String[numberOfMaterials];
-        for (int j= 0; j<numberOfMaterials; j++){
-            materialUsed[j] = materials[j];
-        }
+        //copy a certain amount of materials
+        System.arraycopy(materials, 0, materialUsed, 0, numberOfMaterials);
 
         //create the NonFoodItem with the generated values and return it
-        NonFoodItem nonFoodItem = new NonFoodItem(name, price, materialUsed);
-        return nonFoodItem;
+        return new NonFoodItem(name, price, materialUsed);
     }
 
 
