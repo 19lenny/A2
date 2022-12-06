@@ -10,6 +10,8 @@ public class Main {
         int amountOfItems = 22;
         Inventory inventory = fillUpInventory(amountOfItems);
 
+
+
         //calculating the inventory worth and print it out in a customer friendly format
         DecimalFormat df = new DecimalFormat("0.00");
         System.out.println("Total value of the inventory is: "+df.format(inventory.getInventoryValue())+" DKK");
@@ -20,16 +22,9 @@ public class Main {
 
         //make space
         System.out.println("\n\n");
-
-        //remove some Items from the inventory and test it again
-        int numberToRemove = 17;
-        removeItems(inventory, numberToRemove);
-
-        //calculating the inventory worth and print it out in a customer friendly format
-        System.out.println("Total value of the inventory is: "+df.format(inventory.getInventoryValue())+" DKK");
-        System.out.println("\n");
-
-        //printing out the inventory
+        //throw out all the food, which is expired
+        inventory.removeExpiredFoods();
+        //check if all food which is expired was thrown out
         inventory.printInventory();
     }
 
@@ -85,7 +80,7 @@ public class Main {
 
         //create a random Date for the expiration Date
         Calendar randomCal = Calendar.getInstance();
-        randomCal.set(r.nextInt(2026-2022) + 2022, r.nextInt(11), r.nextInt(30));
+        randomCal.set(r.nextInt(2026-2019) + 2019, r.nextInt(11), r.nextInt(30));
 
         //Convert Calendar to Date
         Date randomDate = randomCal.getTime();

@@ -33,6 +33,23 @@ public class Inventory {
         }
     }
 
+    public void removeExpiredFoods(){
+        for (int i = 0; i<items.size(); i++){
+            //if i dont get an error, I know that it is a food item and can straight go to processing in the try phase
+            //to remove the isExpired has to be true, if not the loop should continue
+            try {
+                if (items.get(i).isExpired()){
+                    removeItem(items.get(i));
+                }
+                else{continue;}
+            }
+            //if it is an UnsupportedOperationException it is handled here
+            catch (UnsupportedOperationException myException){
+                continue;
+            }
+        }
+    }
+
     //this method is returning all the items in the inventory.
     //It is only used to check if remove Items is working smoothly
     public ArrayList<Item> getItems(){
