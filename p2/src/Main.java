@@ -31,8 +31,6 @@ public class Main {
 
         //printing out the inventory
         inventory.printInventory();
-
-
     }
 
     //this method fills up the inventory
@@ -53,7 +51,9 @@ public class Main {
         return inventory;
     }
 
+    //this method removes a certain amount of items from the inventory
     public static void removeItems(Inventory inventory, int numberOfItems){
+        //find out how many items should be removed
         if (numberOfItems<inventory.getItems().size()){
             for (int i = 0; i<numberOfItems; i++){
                 //from the whole inventory remove the item on index i
