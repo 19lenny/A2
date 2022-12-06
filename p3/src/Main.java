@@ -7,7 +7,7 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         //fill up the inventory
-        int amountOfItems = 22;
+        int amountOfItems = 10;
         Inventory inventory = fillUpInventory(amountOfItems);
 
 
