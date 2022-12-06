@@ -7,7 +7,7 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         //fill up the inventory
-        int amountOfItems = 21;
+        int amountOfItems = 22;
         Inventory inventory = fillUpInventory(amountOfItems);
 
         //calculating the inventory worth and print it out in a customer friendly format
@@ -17,6 +17,21 @@ public class Main {
 
         //printing out the inventory
         inventory.printInventory();
+
+        //make space
+        System.out.println("\n\n");
+
+        //remove some Items from the inventory and test it again
+        int numberToRemove = 17;
+        removeItems(inventory, numberToRemove);
+
+        //calculating the inventory worth and print it out in a customer friendly format
+        System.out.println("Total value of the inventory is: "+df.format(inventory.getInventoryValue())+" DKK");
+        System.out.println("\n");
+
+        //printing out the inventory
+        inventory.printInventory();
+
 
     }
 
@@ -36,6 +51,24 @@ public class Main {
             inventory.addItem(createNonFoodItem());
         }
         return inventory;
+    }
+
+    public static void removeItems(Inventory inventory, int numberOfItems){
+        if (numberOfItems<inventory.getItems().size()){
+            for (int i = 0; i<numberOfItems; i++){
+                //from the whole inventory remove the item on index i
+                inventory.removeItem(inventory.getItems().get(0));
+            }
+        }
+        else{
+            int size = inventory.getItems().size();
+            for (int i = 0; i<size; i++){
+                //from the whole inventory remove the item on index i
+                inventory.removeItem(inventory.getItems().get(0));
+            }
+
+        }
+
     }
 
     //with every call a random food item is created

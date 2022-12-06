@@ -32,4 +32,10 @@ public class Inventory {
             System.out.println(items.get(i).toString());
         }
     }
+
+    //this method is returning all the items in the inventory.
+    //It is only used to check if remove Items is working smoothly
+    public ArrayList<Item> getItems(){
+        return items;
+    }
 }
