@@ -3,7 +3,8 @@ import java.util.ArrayList;
 public class Inventory {
     private ArrayList<Item> items = new ArrayList<Item>();
 
-    //no constructor needed
+    //basically no constructor needed
+    public Inventory(){}
 
     public void addItem(Item item){
         //this method adds an item at the end of the ArrayList
