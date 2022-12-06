@@ -104,7 +104,7 @@ public class Main {
         //create a pseudy randomization for the amount on the category of materials
         String[] materials = new String[]{"wood", "steel", "cotton", "clay", "glass", "plastic", "paper" };
         int numberOfMaterials = r.nextInt(materials.length-1) + 1;
-        ArrayList<String> materialUsed = new ArrayList<String>();
+        ArrayList<String> materialUsed = new ArrayList<>();
         for (int i=0; i<numberOfMaterials; i++){
             materialUsed.add(materials[i]);
         }
