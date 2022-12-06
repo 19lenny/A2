@@ -13,7 +13,7 @@ public class NonFoodItem extends Item {
         // initialize name and price.
         super(name, price);
 
-        // Initialize expiration.
+        // Initialize materials.
         this.materials = materials;
     }
 

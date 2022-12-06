@@ -1,4 +1,5 @@
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
@@ -75,9 +76,10 @@ public class Main {
         //create a pseudy randomization for the amount on the category of materials
         String[] materials = new String[]{"wood", "steel", "cotton", "clay", "glass", "plastic", "paper" };
         int numberOfMaterials = r.nextInt(materials.length-1) + 1;
-        String[] materialUsed = new String[numberOfMaterials];
-        //copy a certain amount of materials
-        System.arraycopy(materials, 0, materialUsed, 0, numberOfMaterials);
+        ArrayList<String> materialUsed = new ArrayList<String>();
+        for (int i=0; i<numberOfMaterials; i++){
+            materialUsed.add(materials[i]);
+        }
 
         //create the NonFoodItem with the generated values and return it
         return new NonFoodItem(name, price, materialUsed);
