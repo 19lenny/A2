@@ -10,8 +10,6 @@ public class Main {
         int amountOfItems = 10;
         Inventory inventory = fillUpInventory(amountOfItems);
 
-
-
         //calculating the inventory worth and print it out in a customer friendly format
         DecimalFormat df = new DecimalFormat("0.00");
         System.out.println("Total value of the inventory is: "+df.format(inventory.getInventoryValue())+" DKK");

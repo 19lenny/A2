@@ -31,26 +31,32 @@ public class FoodItem extends Item {
         return "item: "+name +" | price: "+df.format(price)+" DKK  | expiration date: "+expiration;
     }
 
+    //getter for field variable
     public Date getExpires() {
         return expires;
     }
 
+    //checks if a product / item is expired
     @Override
     public boolean isExpired() {
 
         //compare today to the expiration date.
         //if the expiration date > today, all good, return will be -1, so we have to convert this to boolean,
-        //it is chosen to be -1, since the method is called isExpired. It's not expired --> false
+        //it is chosen to be -1, since the method is called isExpired. The food is not expired --> return false
+
         //if the expiration date = today (incl. hours, minutes and seconds), status critical, the return will be 0:
         //the possibility of this is very small. In this case we would return true,
         //since in the next second this would be the result either way
+
         //if the expiration date < today, the product is expired, return will be -1, this has to be translated to boolean
+
         //source: https://mkyong.com/java/how-to-compare-dates-in-java/
 
         //the current date is:
         Date today = Calendar.getInstance().getTime();
-
+        //compare the current date to the expiration date
         int res = today.compareTo(expires);
+        //boolean tree is explained in the beginning of the method
         if (res<0){
             return false;
         }

@@ -33,19 +33,23 @@ public class Inventory {
         }
     }
 
+    //this method check every product in the inventory and deletes the ones that are overdue
     public void removeExpiredFoods(){
         for (int i = 0; i<items.size(); i++){
-            //if i dont get an error, I know that it is a food item and can straight go to processing in the try phase
+            //if I don't get an error, I know that it is a food item and can straight go to processing in the try phase
             //to remove the isExpired has to be true, if not the loop should continue
             try {
                 if (items.get(i).isExpired()){
                     removeItem(items.get(i));
                 }
+                //if it is not expired, nothing should happen
+                //continue keyword is unnecessary but there by purpose
+                //the user know the clause is empty by purpose
                 else{continue;}
             }
             //if it is an UnsupportedOperationException it is handled here
             catch (UnsupportedOperationException myException){
-                continue;
+                //continue;
             }
         }
     }
