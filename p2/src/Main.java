@@ -15,7 +15,7 @@ public class Main {
         System.out.println("Total value of the inventory is: "+df.format(inventory.getInventoryValue())+" DKK");
         System.out.println("\n");
 
-        //printing out the inventory
+        //printing out the storage of the inventory
         inventory.printInventory();
 
         //make space
@@ -53,22 +53,26 @@ public class Main {
 
     //this method removes a certain amount of items from the inventory
     public static void removeItems(Inventory inventory, int numberOfItems){
-        //find out how many items should be removed
+        //create the possibility of randomization
+        Random r = new Random();
+        //find out if there are enough items in the inventory to be removed
+        //if there are enough go here
         if (numberOfItems<inventory.getItems().size()){
             for (int i = 0; i<numberOfItems; i++){
-                //from the whole inventory remove the item on index i
-                inventory.removeItem(inventory.getItems().get(0));
+                //from the whole inventory remove a random item at a random index
+                //size of the inventory is changing with every iteration, therefore the index can never be out of range
+                int indexToBeRemoved = r.nextInt(inventory.getItems().size());
+                inventory.removeItem(inventory.getItems().get(indexToBeRemoved));
             }
         }
+        //else do this
         else{
             int size = inventory.getItems().size();
             for (int i = 0; i<size; i++){
-                //from the whole inventory remove the item on index i
+                //remove whole inventory
                 inventory.removeItem(inventory.getItems().get(0));
             }
-
         }
-
     }
 
     //with every call a random food item is created

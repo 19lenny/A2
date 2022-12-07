@@ -30,6 +30,7 @@ public class FoodItem extends Item {
         return "item: "+name +" | price: "+df.format(price)+" DKK  | expiration date: "+expiration;
     }
 
+    //getter method for the field variable
     public Date getExpires() {
         return expires;
     }

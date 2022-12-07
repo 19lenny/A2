@@ -1,9 +1,13 @@
 import java.util.ArrayList;
 
 public class Inventory {
+    //field variable to store the items in the inventory
     private ArrayList<Item> items = new ArrayList<Item>();
 
-    //basically no constructor needed
+    //constructor only needed to create an object
+    //@Magnus Værbak, does every class really need a constructor?
+    //Because if I delete this line I am still able to create an Inventory object.
+    //Is it a security issue to have a constructor when none is needed?
     public Inventory(){}
 
     public void addItem(Item item){
@@ -16,6 +20,8 @@ public class Inventory {
         //if it is not in the list, nothing happens
         this.items.remove(item);
     }
+
+    //this method calculates the current value of the inventory
     public double getInventoryValue(){
     //The size() method returns an integer equal to a number of elements present in the array list
         double sum = 0.0;
@@ -25,10 +31,12 @@ public class Inventory {
         return sum;
     }
 
+    //print what's in the inventory
     public void printInventory(){
         //The size() method returns an integer equal to a number of elements present in the array list
         for (int i=0; i<this.items.size(); i++){
             //get current item out of the items list and print it in the according method (to String)
+            //directly print it here
             System.out.println(items.get(i).toString());
         }
     }
