@@ -5,7 +5,7 @@ public class FoodItem extends Item {
     //create private Date variable for the expiration Date
     private Date expires;
 
-    //constructor is open for three input variables(name of the product, price of the product, expiration date of the product)
+    //constructor is open for three input variables (name of the product, price of the product, expiration date of the product)
     public FoodItem(String name, double price, Date expiration)
     {
 
@@ -30,6 +30,7 @@ public class FoodItem extends Item {
         return "item: "+name +" | price: "+df.format(price)+" DKK  | expiration date: "+expiration;
     }
 
+    //getter method for the field variable
     public Date getExpires() {
         return expires;
     }

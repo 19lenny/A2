@@ -30,6 +30,7 @@ public class NonFoodItem extends Item {
         return "item: "+name +" | price: "+df.format(price)+" DKK  | materials: "+ Arrays.toString(materials);
     }
 
+    //getter method for hte field variable
     public String[] getMaterials() {
         return materials;
     }
